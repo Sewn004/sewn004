@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+        .container {
+            position: relative;
+            width: 60%;
+            height: 60%;
+            background-color: #fff;
+            border: 5px solid #f8b400;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #ff6f61;
+        }
+        .flowers {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+        .flower-top-left {
+            top: 0;
+            left: 0;
+        }
+        .flower-top-right {
+            top: 0;
+            right: 0;
+        }
+        .flower-bottom-left {
+            bottom: 0;
+            left: 0;
+        }
+        .flower-bottom-right {
+            bottom: 0;
+            right: 0;
+        }
+        .ring {
+            margin-top: 20px;
+            width: 100px;
+            height: 100px;
+            background-image: url('wedding-ring.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff6f61;
+            color: white;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .btn:hover {
+            background-color: #f8b400;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="question">Will you marry me, Talie?</h1>
+        
+        <div class="ring"></div>
+
+        <div class="buttons" id="initial-options">
+            <button class="btn" onclick="handleYes()">Yes</button>
+            <button class="btn" onclick="handleNo()">No</button>
+        </div>
+
+        <div class="buttons hidden" id="second-options">
+            <h2>Are you sure? Say Yes!</h2>
+            <button class="btn" onclick="handleYes()">Yes</button>
+            <button class="btn" onclick="handleYes()">Yes</button>
+        </div>
+
+        <!-- Flowers in corners -->
+        <img src="flower.png" class="flowers flower-top-left" alt="flower">
+        <img src="flower.png" class="flowers flower-top-right" alt="flower">
+        <img src="flower.png" class="flowers flower-bottom-left" alt="flower">
+        <img src="flower.png" class="flowers flower-bottom-right" alt="flower">
+    </div>
+
+    <script>
+        function handleYes() {
+            document.getElementById("question").textContent = "Yay! I knew you'd say Yes!";
+            document.getElementById("initial-options").classList.add("hidden");
+            document.getElementById("second-options").classList.add("hidden");
+        }
+
+        function handleNo() {
+            document.getElementById("initial-options").classList.add("hidden");
+            document.getElementById("second-options").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
